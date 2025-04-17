@@ -1,14 +1,34 @@
-<style>
-   body {
-     background: url('3.jpg') no-repeat center center fixed;
-     background-size: cover;
-     ...
-   }
- 
-   .line {
-     position: absolute;
-     color: rgba(255, 255, 255, 0.9);
-     ...
-   }
- </style>
- # myselect
+body {
+  margin: 0;
+  padding: 0;
+  background: url('3.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Hiragino Mincho ProN', 'ヒラギノ明朝 ProN W3', serif;
+  overflow-x: hidden;
+}
+
+.line {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.75rem;
+  line-height: 2.4;
+  white-space: normal;
+  word-break: break-word;
+  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .line {
+    font-size: 0.65rem;
+    line-height: 2.2;
+  }
+}
+
+@media (max-width: 480px) {
+  .line {
+    font-size: 0.6rem;
+    line-height: 2;
+  }
+}
+
