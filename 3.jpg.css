@@ -1,14 +1,15 @@
-<style>
-  body {
-    background: url('3.jpg') no-repeat center center fixed;
-    background-size: cover;
-    ...
-  }
-
+@media (max-width: 768px) {
   .line {
-    position: absolute;
-    color: rgba(255, 255, 255, 0.9);
-    ...
+    font-size: 0.9rem;
+    line-height: 2.3;
   }
-</style>
+}
+
+@media (max-width: 480px) {
+  .line {
+    font-size: 0.85rem;
+    line-height: 2.2;
+  }
+}
+
 # myselect
