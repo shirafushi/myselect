@@ -2,123 +2,151 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>身体の詩</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>スクロール作品</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background: url('3.jpg') no-repeat center center fixed;
-      background-size: cover;
+      font-family: 'Hiragino Mincho Pro', serif;
+      background-color: #000;
+      color: rgba(255, 255, 255, 0.8); /* 透過80% */
       overflow-x: hidden;
-      height: 6000px;
-      font-family: 'Hiragino Mincho ProN', 'ヒラギノ明朝 ProN W3', serif;
     }
 
-    .line {
-      position: absolute;
-      color: rgba(255, 255, 255, 0.9);
-      font-size: 0.75rem;
-      line-height: 2.4;
-      white-space: nowrap;
-      transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
-      pointer-events: none;
+    .section {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      z-index: 1;
     }
 
-    @media (max-width: 768px) {
-      .line {
-        font-size: 0.65rem;
-        line-height: 2.2;
+    .bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 120%;
+      background-image: url('https://64.media.tumblr.com/xyz.jpg'); /* 画像のURLを直接指定 */
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+      transform: translateY(0);
+      will-change: transform;
+    }
+
+    .image {
+      width: 80%;
+      max-width: 500px;
+      margin-bottom: 20px;
+      z-index: 1;
+    }
+
+    .text {
+      font-size: 2rem; /* 基本のフォントサイズ */
+      line-height: 1.8; /* 行間を広げる */
+      transition: filter 0.2s, letter-spacing 0.2s, opacity 0.2s;
+      z-index: 1;
+      color: rgba(255, 255, 255, 0.8); /* 透過80% */
+    }
+
+    /* モバイル向けの調整 */
+    @media screen and (max-width: 600px) {
+      .text {
+        font-size: 3rem; /* モバイルでは文字を大きく */
+        line-height: 2.2; /* 行間をさらに広げる */
       }
     }
 
-    @media (max-width: 480px) {
-      .line {
-        font-size: 0.6rem;
-        line-height: 2;
-      }
-    }
   </style>
 </head>
 <body>
 
-<script>
-  const lines = [
-    "私が身体を使った表現を行うのは、",
-    "単なる露出や裸体の提示ではありません。",
-    "身体は、私にとって自己表現のための媒介であり、",
-    "自己を深く探求し、",
-    "社会的な期待や規範に問いを投げかける感覚の延長です。",
-    "カメラで身体を撮る行為や、",
-    "写真と物理的オブジェクトを組み合わせることは、",
-    "肉体をさらすのではなく、",
-    "身体という存在を社会的・文化的な枠組みから捉え直し、",
-    "新たな視点を探る試みです。",
-    "そのプロセスには、見られること、",
-    "見せること、",
-    "そしてその間で生まれる",
-    "葛藤が常に内在しています。",
-    "私の作品が示そうとしているのは、",
-    "ただの裸や肉体ではなく、",
-    "身体を通して社会やジェンダーに対して問いを立て、",
-    "自己を解きほぐし、再編する可能性です。",
-    "見られることへの葛藤や、",
-    "身体をどう引き受けるかという問いは、",
-    "アートの枠を超え、",
-    "現代を生きる私たち一人ひとりに",
-    "深く関わるテーマだと考えています。"
-  ];
+  <div class="bg" id="bg"></div>
 
-  const viewportHeight = window.innerHeight;
+  <div class="section">
+    <img src="your-image.jpg" class="image" alt="作品画像">
+    <div class="text" id="text1">私が身体を使った表現を行うのは、<br><br>
+単なる露出や裸体の提示ではありません。<br><br>
+      身体は、私にとって自己表現のための媒介であり、<br><br>
+自己を深く探求し、社会的な期待や規範に問いを投げかける<br><br>
+感覚の延長です。<br><br>
+      カメラで身体を撮る行為や<br><br>、
+写真と物理的オブジェクトを組み合わせることは、<br><br>
+肉体をさらすのではなく、<br><br>
+身体という存在を社会的・文化的な枠組みから捉え直し、<br><br>
+新たな視点を探る試みです。<br><br>
+      そのプロセスには、<br><br>
 
-  lines.forEach((text, index) => {
-    const el = document.createElement('div');
-    el.className = 'line';
-    el.textContent = text;
+<br><br>
 
-    const top = Math.random() * (document.body.scrollHeight - viewportHeight * 0.3) + viewportHeight * 0.15;
-    const left = Math.random() * 70 + 10; // 10〜80%
-    const rotation = (Math.random() - 0.5) * 10; // ランダムに回転させる
+<br><br>
+見られること、
+<br><br>
+見せること、
+<br><br>
+そしてその間で生まれる
+<br><br>葛藤が
+<br><br>常に内在しています。<br><br>
+      
+   </div>
+  </div>
 
-    el.style.top = `${top}px`;
-    el.style.left = `${left}%`;
-    el.style.transform = `rotate(${rotation}deg)`; // ランダム回転
+  <div class="section">
+    <img src="your-image2.jpg" class="image" alt="作品画像">
+    <div class="text" id="text2">私の作品が示そうとしているのは、<br><br>
+ただの裸や肉体ではなく、<br><br>
+身体を通して社会やジェンダーに対して問いを立て、<br><br>
+自己を解きほぐし、再編する可能性です。<br><br>
+      見られることへの葛藤や、<br><br>
+身体をどう引き受けるかという問いは、<br><br>
+アートの枠を超え、<br><br>
+現代を生きる私たち<br><br>
+<br><br>
+<br><br>
+一人ひとりに<br><br>
+深く関わるテーマ<br><br>
+だと考えています。</div>
+  </div>
 
-    document.body.appendChild(el);
-  });
+  <script>
+    let lastScroll = 0;
+    let lastTime = Date.now();
 
-  let lastScroll = window.scrollY;
-  let lastTime = Date.now();
+    window.addEventListener('scroll', () => {
+      const now = Date.now();
+      const currentScroll = window.scrollY;
+      const timeDiff = now - lastTime;
+      const scrollDiff = Math.abs(currentScroll - lastScroll);
+      const scrollSpeed = scrollDiff / timeDiff; // スクロール速度を計算
 
-  function updateEffects() {
-    const now = Date.now();
-    const currentScroll = window.scrollY;
-    const timeDiff = now - lastTime;
-    const scrollDiff = Math.abs(currentScroll - lastScroll);
-    const scrollSpeed = scrollDiff / timeDiff;
+      // 背景をゆっくり動かす（パララックス風）
+      const bg = document.getElementById('bg');
+      bg.style.transform = `translateY(${window.scrollY * 0.4}px)`; // スクロールに対してゆっくり動く
 
-    const allLines = document.querySelectorAll('.line');
-    allLines.forEach(line => {
-      const rect = line.getBoundingClientRect();
-      const inView = rect.top < window.innerHeight && rect.bottom >= 0;
+      // テキストにスクロール速度応じたフィルターをかける
+      const texts = document.querySelectorAll('.text');
+      texts.forEach(text => {
+        if (scrollSpeed > 0.5) {
+          // スクロールが速い：崩れる（ぼやける・字間が広がる）
+          text.style.filter = 'blur(2px)';
+          text.style.letterSpacing = '3px';
+          text.style.opacity = '0.5';
+        } else {
+          // ゆっくり：はっきり浮かび上がる
+          text.style.filter = 'blur(0px)';
+          text.style.letterSpacing = '0.5px';
+          text.style.opacity = '1';
+        }
+      });
 
-      if (scrollSpeed > 0.6) {
-        line.style.opacity = inView ? '0.08' : '0';
-        line.style.filter = 'blur(2.5px)';
-        line.style.transform = inView ? 'scale(1.04)' : 'scale(0.95)';
-      } else {
-        line.style.opacity = inView ? '0.95' : '0';
-        line.style.filter = 'blur(0px)';
-        line.style.transform = inView ? 'scale(1)' : 'scale(1)';
-      }
+      lastScroll = currentScroll;
+      lastTime = now;
     });
-
-    lastScroll = currentScroll;
-    lastTime = now;
-    requestAnimationFrame(updateEffects);
-  }
-
-  updateEffects();
-</script>
+  </script>
 
 </body>
 </html>
