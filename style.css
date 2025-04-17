@@ -14,7 +14,7 @@ body {
   line-height: 2.4;
   white-space: normal;
   word-break: break-word;
-  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  transition: filter 0.3s ease, opacity 0.3s ease;
   pointer-events: none;
 }
 
@@ -31,4 +31,3 @@ body {
     line-height: 2;
   }
 }
-
