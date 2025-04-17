@@ -5,56 +5,44 @@ body {
   background-size: cover;
   font-family: 'Hiragino Mincho ProN', 'ヒラギノ明朝 ProN W3', serif;
   color: rgba(255, 255, 255, 0.95);
-  font-size: 1rem;
   overflow-x: hidden;
 }
 
 .container {
   width: 100%;
-  padding: 200px 0;
-  position: relative;
+  padding: 150px 0;
 }
 
-/* 共通の段落スタイル */
-p {
+.line {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 1s ease, transform 1s ease;
   font-size: 1rem;
-  line-height: 2;
-  margin: 100px auto;
+  line-height: 2.2;
+  margin: 120px auto;
   max-width: 600px;
+  position: relative;
   padding: 0 20px;
 }
 
-/* スクロール後に表示 */
-p.visible {
+.line.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* PC用: ランダム位置 */
-@media (min-width: 769px) {
-  .container {
-    height: 6000px; /* 画面の高さ確保 */
+@media (max-width: 768px) {
+  .line {
+    font-size: 0.95rem;
+    line-height: 2;
+    margin: 100px auto;
+    padding: 0 16px;
   }
-
-  p {
-    position: absolute;
-  }
-
-  /* JavaScriptで left をランダムに設定する */
 }
 
-/* スマホ・タブレット用: 縦に自然に並べる */
-@media (max-width: 768px) {
-  .container {
-    height: auto;
-    padding: 100px 0;
-  }
-
-  p {
-    position: relative;
-    left: auto !important;
+@media (max-width: 480px) {
+  .line {
+    font-size: 0.9rem;
+    margin: 80px auto;
+    padding: 0 14px;
   }
 }
