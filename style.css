@@ -5,20 +5,25 @@ body {
   background-size: cover;
   font-family: 'Hiragino Mincho ProN', 'ヒラギノ明朝 ProN W3', serif;
   color: rgba(255, 255, 255, 0.95);
-  line-height: 2.5;
   font-size: 1rem;
+  overflow-x: hidden;
+  position: relative;
 }
 
 .container {
-  max-width: 800px;
-  margin: 100px auto;
-  padding: 0 1rem;
+  position: relative;
+  width: 100%;
+  padding: 200px 0; /* 上下余白たっぷり */
 }
 
 p {
+  position: relative;
+  max-width: 600px;
+  margin: 120px 0; /* 段落の間隔ゆったり */
+  transform: translateY(30px);
   opacity: 0;
-  transform: translateY(20px);
   transition: opacity 1s ease, transform 1s ease;
+  position: absolute;
 }
 
 p.visible {
@@ -29,6 +34,10 @@ p.visible {
 @media (max-width: 768px) {
   body {
     font-size: 0.95rem;
+  }
+  p {
+    max-width: 90%;
+    margin: 100px 0;
   }
 }
 
