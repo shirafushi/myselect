@@ -1,65 +1,14 @@
-/* 背景と全体設定 */
-body {
-  margin: 0;
-  padding: 0;
-  background: url('3.jpg') no-repeat center center fixed;
-  background-size: cover;
-  font-family: 'Hiragino Mincho ProN', 'ヒラギノ明朝 ProN W3', serif;
-  color: rgba(255, 255, 255, 0.95);
-  overflow-x: hidden;
-}
-
-/* テキストを囲むコンテナ */
-.container {
-  width: 100%;
-  padding: 100px 0;
-  position: relative;
-}
-
-/* 各テキスト行のベース設定 */
-.line {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1.2s ease, transform 1.2s ease;
-  font-size: 1rem;
-  line-height: 2.2;
-  max-width: 600px;
-  padding: 0 24px;
-  text-align: left;
-  margin: 120px auto;
-  position: relative;
-}
-
-/* 可視化されるときのアニメーション */
-.line.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ランダムっぽいマージン変化でリズムを出す（JSで追加してもOK） */
-.line:nth-child(odd) {
-  margin-top: 140px;
-}
-.line:nth-child(even) {
-  margin-top: 100px;
-}
-
-/* タブレット用レスポンシブ */
-@media (max-width: 768px) {
-  .line {
-    font-size: 1rem;
-    line-height: 2;
-    margin: 100px auto;
-    padding: 0 18px;
-  }
-}
-
-/* スマホ用レスポンシブ */
-@media (max-width: 480px) {
-  .line {
-    font-size: 0.95rem;
-    line-height: 1.9;
-    margin: 80px auto;
-    padding: 0 16px;
-  }
-}
+<style>
+   body {
+     background: url('3.jpg') no-repeat center center fixed;
+     background-size: cover;
+     ...
+   }
+ 
+   .line {
+     position: absolute;
+     color: rgba(255, 255, 255, 0.9);
+     ...
+   }
+ </style>
+ # myselect
