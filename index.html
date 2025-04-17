@@ -3,118 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <title>身体の詩</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: url('3.jpg') no-repeat center center fixed;
-      background-size: cover;
-      font-family: 'Hiragino Mincho ProN', 'ヒラギノ明朝 ProN W3', serif;
-      color: rgba(255, 255, 255, 0.95);
-      overflow-x: hidden;
-    }
-
-    .container {
-      width: 100%;
-      padding: 150px 0;
-    }
-
-    .line {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 1s ease, transform 1s ease;
-      font-size: 1rem;
-      line-height: 2.2;
-      margin: 120px auto;
-      max-width: 600px;
-      position: relative;
-      padding: 0 20px;
-    }
-
-    .line.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* PCのときは左右をランダムに */
-    @media (min-width: 769px) {
-      .line {
-        left: 0;
-      }
-    }
-
-    /* スマホ用（縦並び＆中央寄せ） */
-    @media (max-width: 768px) {
-      .line {
-        font-size: 0.95rem;
-        line-height: 2;
-        margin: 100px auto;
-        padding: 0 16px;
-        left: auto !important;
-      }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container" id="container"></div>
+
+  <div class="container" id="text-container">
+    <div class="line">私が身体を使った表現を行うのは、</div>
+    <div class="line">単なる露出や裸体の提示ではありません。</div>
+    <div class="line">身体は、私にとって自己表現のための媒介であり、</div>
+    <div class="line">自己を深く探求し、</div>
+    <div class="line">社会的な期待や規範に問いを投げかける感覚の延長です。</div>
+    <div class="line">カメラで身体を撮る行為や、</div>
+    <div class="line">写真と物理的オブジェクトを組み合わせることは、</div>
+    <div class="line">肉体をさらすのではなく、</div>
+    <div class="line">身体という存在を社会的・文化的な枠組みから捉え直し、</div>
+    <div class="line">新たな視点を探る試みです。</div>
+    <div class="line">そのプロセスには、見られること、</div>
+    <div class="line">見せること、</div>
+    <div class="line">そしてその間で生まれる</div>
+    <div class="line">葛藤が常に内在しています。</div>
+    <div class="line">私の作品が示そうとしているのは、</div>
+    <div class="line">ただの裸や肉体ではなく、</div>
+    <div class="line">身体を通して社会やジェンダーに対して問いを立て、</div>
+    <div class="line">自己を解きほぐし、再編する可能性です。</div>
+    <div class="line">見られることへの葛藤や、</div>
+    <div class="line">身体をどう引き受けるかという問いは、</div>
+    <div class="line">アートの枠を超え、</div>
+    <div class="line">現代を生きる私たち一人ひとりに</div>
+    <div class="line">深く関わるテーマだと考えています。</div>
+  </div>
 
   <script>
-    const lines = [
-      "私が身体を使った表現を行うのは、",
-      "単なる露出や裸体の提示ではありません。",
-      "身体は、私にとって自己表現のための媒介であり、",
-      "自己を深く探求し、",
-      "社会的な期待や規範に問いを投げかける感覚の延長です。",
-      "カメラで身体を撮る行為や、",
-      "写真と物理的オブジェクトを組み合わせることは、",
-      "肉体をさらすのではなく、",
-      "身体という存在を社会的・文化的な枠組みから捉え直し、",
-      "新たな視点を探る試みです。",
-      "そのプロセスには、見られること、",
-      "見せること、",
-      "そしてその間で生まれる",
-      "葛藤が常に内在しています。",
-      "私の作品が示そうとしているのは、",
-      "ただの裸や肉体ではなく、",
-      "身体を通して社会やジェンダーに対して問いを立て、",
-      "自己を解きほぐし、再編する可能性です。",
-      "見られることへの葛藤や、",
-      "身体をどう引き受けるかという問いは、",
-      "アートの枠を超え、",
-      "現代を生きる私たち一人ひとりに",
-      "深く関わるテーマだと考えています。"
-    ];
-
-    const container = document.getElementById('container');
-
-    lines.forEach(text => {
-      const el = document.createElement('p');
-      el.className = 'line';
-      el.textContent = text;
-
-      // PC のときのみ左右をランダムにずらす
-      if (window.innerWidth > 768) {
-        const leftOffset = Math.random() * 40 - 20; // -20% ~ +20%
-        el.style.transform = `translateX(${leftOffset}%) translateY(30px)`; // 横にずらしつつ、Y方向のアニメもキープ
-      }
-
-      container.appendChild(el);
-    });
-
-    function revealOnScroll() {
-      const elements = document.querySelectorAll('.line');
-      const windowHeight = window.innerHeight;
-
-      elements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < windowHeight - 50) {
-          el.classList.add('visible');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
         }
       });
-    }
+    }, {
+      threshold: 0.2
+    });
 
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('load', revealOnScroll);
+    document.querySelectorAll('.line').forEach(el => {
+      observer.observe(el);
+    });
   </script>
+
 </body>
 </html>
