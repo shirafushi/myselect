@@ -3,82 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <title>身体の詩</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: url('3.jpg') no-repeat center center fixed;
-      background-size: cover;
-      font-family: 'Hiragino Mincho ProN', 'ヒラギノ明朝 ProN W3', serif;
-      color: rgba(255, 255, 255, 0.95);
-      line-height: 2.5;
-      font-size: 1rem;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 100px auto;
-      padding: 0 1rem;
-    }
-
-    p {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-
-    p.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 768px) {
-      body {
-        font-size: 0.95rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      body {
-        font-size: 0.9rem;
-        line-height: 2.3;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
-  <p>私が身体を使った表現を行うのは、</p>
-  <p>単なる露出や裸体の提示ではありません。</p>
-  <p>身体は、私にとって自己表現のための媒介であり、</p>
-  <p>自己を深く探求し、</p>
-  <p>社会的な期待や規範に問いを投げかける感覚の延長です。</p>
-  <p>カメラで身体を撮る行為や、</p>
-  <p>写真と物理的オブジェクトを組み合わせることは、</p>
-  <p>肉体をさらすのではなく、</p>
-  <p>身体という存在を社会的・文化的な枠組みから捉え直し、</p>
-  <p>新たな視点を探る試みです。</p>
-  <p>そのプロセスには、見られること、</p>
-  <p>見せること、</p>
-  <p>そしてその間で生まれる</p>
-  <p>葛藤が常に内在しています。</p>
-  <p>私の作品が示そうとしているのは、</p>
-  <p>ただの裸や肉体ではなく、</p>
-  <p>身体を通して社会やジェンダーに対して問いを立て、</p>
-  <p>自己を解きほぐし、再編する可能性です。</p>
-  <p>見られることへの葛藤や、</p>
-  <p>身体をどう引き受けるかという問いは、</p>
-  <p>アートの枠を超え、</p>
-  <p>現代を生きる私たち一人ひとりに</p>
-  <p>深く関わるテーマだと考えています。</p>
+<div class="container" id="container">
+  <!-- JavaScriptで段落を生成 -->
 </div>
 
 <script>
-  const paragraphs = document.querySelectorAll('p');
+  const lines = [
+    "私が身体を使った表現を行うのは、",
+    "単なる露出や裸体の提示ではありません。",
+    "身体は、私にとって自己表現のための媒介であり、",
+    "自己を深く探求し、",
+    "社会的な期待や規範に問いを投げかける感覚の延長です。",
+    "カメラで身体を撮る行為や、",
+    "写真と物理的オブジェクトを組み合わせることは、",
+    "肉体をさらすのではなく、",
+    "身体という存在を社会的・文化的な枠組みから捉え直し、",
+    "新たな視点を探る試みです。",
+    "そのプロセスには、見られること、",
+    "見せること、",
+    "そしてその間で生まれる",
+    "葛藤が常に内在しています。",
+    "私の作品が示そうとしているのは、",
+    "ただの裸や肉体ではなく、",
+    "身体を通して社会やジェンダーに対して問いを立て、",
+    "自己を解きほぐし、再編する可能性です。",
+    "見られることへの葛藤や、",
+    "身体をどう引き受けるかという問いは、",
+    "アートの枠を超え、",
+    "現代を生きる私たち一人ひとりに",
+    "深く関わるテーマだと考えています。"
+  ];
 
-  function checkInView() {
+  const container = document.getElementById('container');
+
+  lines.forEach(text => {
+    const p = document.createElement('p');
+    p.textContent = text;
+
+    // 左右位置をランダムに（10%〜70%の範囲で）
+    const leftOffset = Math.random() * 60 + 10;
+    p.style.left = `${leftOffset}%`;
+
+    container.appendChild(p);
+  });
+
+  function revealOnScroll() {
+    const paragraphs = document.querySelectorAll('p');
     const windowHeight = window.innerHeight;
+
     paragraphs.forEach(p => {
       const rect = p.getBoundingClientRect();
       if (rect.top < windowHeight - 50) {
@@ -87,8 +63,8 @@
     });
   }
 
-  window.addEventListener('scroll', checkInView);
-  window.addEventListener('load', checkInView);
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('load', revealOnScroll);
 </script>
 
 </body>
