@@ -3,122 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <title>身体の詩</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: url('3.jpg') no-repeat center center fixed;
-      background-size: cover;
-      overflow-x: hidden;
-      height: 6000px;
-      font-family: 'Hiragino Mincho ProN', 'ヒラギノ明朝 ProN W3', serif;
-    }
-
-    .line {
-      position: absolute;
-      color: rgba(255, 255, 255, 0.9);
-      font-size: 0.75rem;
-      line-height: 2.4;
-      white-space: nowrap;
-      transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
-      pointer-events: none;
-      text-shadow: 0 0 2px rgba(0, 0, 0, 0.3); /* 読みやすさアップ */
-    }
-
-    @media (max-width: 768px) {
-      .line {
-        font-size: 0.9rem;
-        line-height: 2.3;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .line {
-        font-size: 0.85rem;
-        line-height: 2.2;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<div class="container">
+  <p>私が身体を使った表現を行うのは、</p>
+  <p>単なる露出や裸体の提示ではありません。</p>
+  <p>身体は、私にとって自己表現のための媒介であり、</p>
+  <p>自己を深く探求し、</p>
+  <p>社会的な期待や規範に問いを投げかける感覚の延長です。</p>
+  <p>カメラで身体を撮る行為や、</p>
+  <p>写真と物理的オブジェクトを組み合わせることは、</p>
+  <p>肉体をさらすのではなく、</p>
+  <p>身体という存在を社会的・文化的な枠組みから捉え直し、</p>
+  <p>新たな視点を探る試みです。</p>
+  <p>そのプロセスには、見られること、</p>
+  <p>見せること、</p>
+  <p>そしてその間で生まれる</p>
+  <p>葛藤が常に内在しています。</p>
+  <p>私の作品が示そうとしているのは、</p>
+  <p>ただの裸や肉体ではなく、</p>
+  <p>身体を通して社会やジェンダーに対して問いを立て、</p>
+  <p>自己を解きほぐし、再編する可能性です。</p>
+  <p>見られることへの葛藤や、</p>
+  <p>身体をどう引き受けるかという問いは、</p>
+  <p>アートの枠を超え、</p>
+  <p>現代を生きる私たち一人ひとりに</p>
+  <p>深く関わるテーマだと考えています。</p>
+</div>
+
 <script>
-  const lines = [
-    "私が身体を使った表現を行うのは、",
-    "単なる露出や裸体の提示ではありません。",
-    "身体は、私にとって自己表現のための媒介であり、",
-    "自己を深く探求し、",
-    "社会的な期待や規範に問いを投げかける感覚の延長です。",
-    "カメラで身体を撮る行為や、",
-    "写真と物理的オブジェクトを組み合わせることは、",
-    "肉体をさらすのではなく、",
-    "身体という存在を社会的・文化的な枠組みから捉え直し、",
-    "新たな視点を探る試みです。",
-    "そのプロセスには、見られること、",
-    "見せること、",
-    "そしてその間で生まれる",
-    "葛藤が常に内在しています。",
-    "私の作品が示そうとしているのは、",
-    "ただの裸や肉体ではなく、",
-    "身体を通して社会やジェンダーに対して問いを立て、",
-    "自己を解きほぐし、再編する可能性です。",
-    "見られることへの葛藤や、",
-    "身体をどう引き受けるかという問いは、",
-    "アートの枠を超え、",
-    "現代を生きる私たち一人ひとりに",
-    "深く関わるテーマだと考えています。"
-  ];
+  const paragraphs = document.querySelectorAll('p');
 
-  const viewportHeight = window.innerHeight;
-
-  lines.forEach((text, index) => {
-    const el = document.createElement('div');
-    el.className = 'line';
-    el.textContent = text;
-
-    const top = Math.random() * (document.body.scrollHeight - viewportHeight * 0.3) + viewportHeight * 0.15;
-    const left = Math.random() * 70 + 10; // 10〜80%
-    const rotation = (Math.random() - 0.5) * 10;
-
-    el.style.top = `${top}px`;
-    el.style.left = `${left}%`;
-    el.style.transform = `rotate(${rotation}deg)`;
-
-    document.body.appendChild(el);
-  });
-
-  let lastScroll = window.scrollY;
-  let lastTime = Date.now();
-
-  function updateEffects() {
-    const now = Date.now();
-    const currentScroll = window.scrollY;
-    const timeDiff = now - lastTime;
-    const scrollDiff = Math.abs(currentScroll - lastScroll);
-    const scrollSpeed = scrollDiff / timeDiff;
-
-    const allLines = document.querySelectorAll('.line');
-    allLines.forEach(line => {
-      const rect = line.getBoundingClientRect();
-      const inView = rect.top < window.innerHeight && rect.bottom >= 0;
-
-      if (scrollSpeed > 0.6) {
-        line.style.opacity = inView ? '0.08' : '0';
-        line.style.filter = 'blur(2.5px)';
-        line.style.transform = inView ? 'scale(1.04)' : 'scale(0.95)';
-      } else {
-        line.style.opacity = inView ? '0.95' : '0';
-        line.style.filter = 'blur(0px)';
-        line.style.transform = inView ? 'scale(1)' : 'scale(1)';
+  function checkInView() {
+    const windowHeight = window.innerHeight;
+    paragraphs.forEach(p => {
+      const rect = p.getBoundingClientRect();
+      if (rect.top < windowHeight - 50) {
+        p.classList.add('visible');
       }
     });
-
-    lastScroll = currentScroll;
-    lastTime = now;
-    requestAnimationFrame(updateEffects);
   }
 
-  updateEffects();
+  window.addEventListener('scroll', checkInView);
+  window.addEventListener('load', checkInView);
 </script>
 
 </body>
