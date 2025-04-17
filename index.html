@@ -72,11 +72,9 @@
       if (scrollSpeed > 0.5) {
         line.style.opacity = inView ? '0.08' : '0';
         line.style.filter = 'blur(2.5px)';
-        line.style.transform += ' scale(1.04)';
       } else {
         line.style.opacity = inView ? '0.95' : '0';
         line.style.filter = 'blur(0px)';
-        line.style.transform += ' scale(1)';
       }
     });
 
