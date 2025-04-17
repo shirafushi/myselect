@@ -1,3 +1,4 @@
+/* 背景と全体設定 */
 body {
   margin: 0;
   padding: 0;
@@ -8,28 +9,42 @@ body {
   overflow-x: hidden;
 }
 
+/* テキストを囲むコンテナ */
 .container {
   width: 100%;
-  padding: 120px 0;
+  padding: 100px 0;
+  position: relative;
 }
 
+/* 各テキスト行のベース設定 */
 .line {
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 1.2s ease, transform 1.2s ease;
   font-size: 1rem;
   line-height: 2.2;
-  margin: 120px auto;
   max-width: 600px;
   padding: 0 24px;
   text-align: left;
+  margin: 120px auto;
+  position: relative;
 }
 
+/* 可視化されるときのアニメーション */
 .line.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
+/* ランダムっぽいマージン変化でリズムを出す（JSで追加してもOK） */
+.line:nth-child(odd) {
+  margin-top: 140px;
+}
+.line:nth-child(even) {
+  margin-top: 100px;
+}
+
+/* タブレット用レスポンシブ */
 @media (max-width: 768px) {
   .line {
     font-size: 1rem;
@@ -39,11 +54,12 @@ body {
   }
 }
 
+/* スマホ用レスポンシブ */
 @media (max-width: 480px) {
   .line {
     font-size: 0.95rem;
     line-height: 1.9;
-    margin: 90px auto;
+    margin: 80px auto;
     padding: 0 16px;
   }
 }
