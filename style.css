@@ -7,43 +7,54 @@ body {
   color: rgba(255, 255, 255, 0.95);
   font-size: 1rem;
   overflow-x: hidden;
-  position: relative;
 }
 
 .container {
-  position: relative;
   width: 100%;
-  padding: 200px 0; /* 上下余白たっぷり */
-}
-
-p {
+  padding: 200px 0;
   position: relative;
-  max-width: 600px;
-  margin: 120px 0; /* 段落の間隔ゆったり */
-  transform: translateY(30px);
-  opacity: 0;
-  transition: opacity 1s ease, transform 1s ease;
-  position: absolute;
 }
 
+/* 共通の段落スタイル */
+p {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+  font-size: 1rem;
+  line-height: 2;
+  margin: 100px auto;
+  max-width: 600px;
+  padding: 0 20px;
+}
+
+/* スクロール後に表示 */
 p.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-@media (max-width: 768px) {
-  body {
-    font-size: 0.95rem;
+/* PC用: ランダム位置 */
+@media (min-width: 769px) {
+  .container {
+    height: 6000px; /* 画面の高さ確保 */
   }
+
   p {
-    max-width: 90%;
-    margin: 100px 0;
+    position: absolute;
   }
+
+  /* JavaScriptで left をランダムに設定する */
 }
 
-@media (max-width: 480px) {
-  body {
-    font-size: 0.9rem;
-    line-height: 2.3;
+/* スマホ・タブレット用: 縦に自然に並べる */
+@media (max-width: 768px) {
+  .container {
+    height: auto;
+    padding: 100px 0;
+  }
+
+  p {
+    position: relative;
+    left: auto !important;
   }
 }
