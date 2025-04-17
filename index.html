@@ -3,7 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <title>身体の詩</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('3.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Hiragino Mincho ProN', 'ヒラギノ明朝 ProN W3', serif;
+      color: rgba(255, 255, 255, 0.95);
+      line-height: 2.5;
+      font-size: 1rem;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 100px auto;
+      padding: 0 1rem;
+    }
+
+    p {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    p.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        font-size: 0.9rem;
+        line-height: 2.3;
+      }
+    }
+  </style>
 </head>
 <body>
 
