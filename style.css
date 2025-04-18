@@ -1,15 +1,4 @@
-/* 基本設定 */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
-  color: white;
-  background-color: black;
-  overflow-x: hidden;
-  line-height: 2.2; /* 行間ゆったりに */
-}
-
-/* 背景画像（画面全体にフィット） */
+/* 背景画像設定 */
 .bg-img {
   position: fixed;
   top: 0;
@@ -20,24 +9,31 @@ body {
   z-index: -1;
 }
 
-/* テキスト表示スタイル */
-.line {
-  position: absolute;
-  font-size: 1.4rem;
-  line-height: 2.4;
-  text-shadow: 0 0 6px rgba(0, 0, 0, 0.7);
-  transition: opacity 0.3s, filter 0.3s;
-  white-space: nowrap;
-  opacity: 0.7;
+/* 本文全体のスタイル */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Hiragino Mincho ProN', 'Hiragino Mincho Pro', 'Noto Serif JP', 'Yu Mincho', 'MS PMincho', serif;
+  color: rgba(255, 255, 255, 0.7);  /* 白文字・70%透過 */
+  background-color: black;
+  overflow-x: hidden;
+  line-height: 2.4;  /* 行間ゆったり */
 }
 
-/* レスポンシブ対応：スマホ画面用に調整 */
+/* テキスト1行ずつの表示スタイル */
+.line {
+  position: absolute;
+  font-size: 1.2rem;
+  white-space: nowrap;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+  max-width: 90%;
+}
+
+/* レスポンシブ対応：スマホ向け調整 */
 @media screen and (max-width: 768px) {
   .line {
-    font-size: 1.1rem;
-    line-height: 2.2;
-    white-space: normal;
-    word-break: keep-all;
-    max-width: 90%;
+    font-size: 1rem;
+    max-width: 95%;
+    line-height: 2.8;
   }
 }
