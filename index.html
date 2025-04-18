@@ -7,85 +7,23 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<img src="img/flower.png" class="bg-img" alt="3.jpg">
 
-<script>
-  const lines = [
-    "私が身体を使った表現を行うのは、",
-    "単なる露出や裸体の提示ではありません。",
-    "身体は、私にとって自己表現のための媒介であり、",
-    "自己を深く探求し、",
-    "社会的な期待や規範に問いを投げかける感覚の延長です。",
-    "カメラで身体を撮る行為や、",
-    "写真と物理的オブジェクトを組み合わせることは、",
-    "肉体をさらすのではなく、",
-    "身体という存在を社会的・文化的な枠組みから捉え直し、",
-    "新たな視点を探る試みです。",
-    "そのプロセスには、見られること、",
-    "見せること、",
-    "そしてその間で生まれる",
-    "葛藤が常に内在しています。",
-    "私の作品が示そうとしているのは、",
-    "ただの裸や肉体ではなく、",
-    "身体を通して社会やジェンダーに対して問いを立て、",
-    "自己を解きほぐし、再編する可能性です。",
-    "見られることへの葛藤や、",
-    "身体をどう引き受けるかという問いは、",
-    "アートの枠を超え、",
-    "現代を生きる私たち一人ひとりに",
-    "深く関わるテーマだと考えています。"
-  ];
+  <!-- 背景画像を追加 -->
+  <img src="img/flower.png" class="bg-img" alt="背景画像">
 
-  const viewportHeight = window.innerHeight;
-  document.body.style.height = `${lines.length * 300 + 1000}px`;
-
-  lines.forEach((text, index) => {
-    const el = document.createElement('div');
-    el.className = 'line';
-    el.textContent = text;
-
-    const top = index * 250 + Math.random() * 100 + viewportHeight * 0.15;
-    const left = Math.random() * 70 + 10;
-    const rotation = (Math.random() - 0.5) * 10;
-
-    el.style.top = `${top}px`;
-    el.style.left = `${left}%`;
-    el.style.transform = `rotate(${rotation}deg)`;
-
-    document.body.appendChild(el);
-  });
-
-  let lastScroll = window.scrollY;
-  let lastTime = Date.now();
-
-  function updateEffects() {
-    const now = Date.now();
-    const currentScroll = window.scrollY;
-    const timeDiff = now - lastTime || 1;
-    const scrollDiff = Math.abs(currentScroll - lastScroll);
-    const scrollSpeed = scrollDiff / timeDiff;
-
-    const allLines = document.querySelectorAll('.line');
-    allLines.forEach(line => {
-      const rect = line.getBoundingClientRect();
-      const inView = rect.top < window.innerHeight && rect.bottom >= 0;
-
-      if (scrollSpeed > 0.5) {
-        line.style.opacity = inView ? '0.08' : '0';
-        line.style.filter = 'blur(2.5px)';
-      } else {
-        line.style.opacity = inView ? '0.95' : '0';
-        line.style.filter = 'blur(0px)';
-      }
-    });
-
-    lastScroll = currentScroll;
-    lastTime = now;
-    requestAnimationFrame(updateEffects);
-  }
-
-  updateEffects();
-</script>
-
-</body>
-</html>
+  <script>
+    const lines = [
+      "私が身体を使った表現を行うのは、",
+      "単なる露出や裸体の提示ではありません。",
+      "身体は、私にとって自己表現のための媒介であり、",
+      "自己を深く探求し、",
+      "社会的な期待や規範に問いを投げかける感覚の延長です。",
+      "カメラで身体を撮る行為や、",
+      "写真と物理的オブジェクトを組み合わせることは、",
+      "肉体をさらすのではなく、",
+      "身体という存在を社会的・文化的な枠組みから捉え直し、",
+      "新たな視点を探る試みです。",
+      "そのプロセスには、見られること、",
+      "見せること、",
+      "そしてその間で生まれる",
+      "葛藤が常に
