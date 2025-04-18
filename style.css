@@ -1,17 +1,14 @@
+/* 全体の設定 */
 body {
   margin: 0;
   padding: 0;
-  font-family: "Hiragino Mincho ProN", "游明朝", "Yu Mincho", "MS PMincho", serif;
-}
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: sans-serif;
+  font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', 'MS PMincho', serif;
+  color: white;
+  background-color: black;
   overflow-x: hidden;
-  position: relative;
 }
 
+/* 背景画像 */
 .bg-img {
   position: fixed;
   top: 0;
@@ -19,16 +16,14 @@ body, html {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-  z-index: -1; /* 背景に下げる */
+  z-index: -1;
 }
 
+/* 各行のテキスト */
 .line {
   position: absolute;
   font-size: 1.2rem;
-  color: white;
-  text-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.7);
   transition: opacity 0.3s, filter 0.3s;
   white-space: nowrap;
-  font-family: inherit; /* 親のbodyから継承 */
 }
-
