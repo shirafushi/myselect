@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Hiragino Mincho ProN", "游明朝", "Yu Mincho", "MS PMincho", serif;
+}
 body, html {
   margin: 0;
   padding: 0;
@@ -21,8 +26,9 @@ body, html {
   position: absolute;
   font-size: 1.2rem;
   color: white;
-  text-shadow: 0 0 4px rgba(0, 0, 0, 0.7); /* 黒っぽい影で浮き出る */
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
   transition: opacity 0.3s, filter 0.3s;
   white-space: nowrap;
+  font-family: inherit; /* 親のbodyから継承 */
 }
 
